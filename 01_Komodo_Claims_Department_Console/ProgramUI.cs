@@ -13,7 +13,7 @@ namespace _01_Komodo_Claims_Department_Console
 
         public void Run()
         {
-            //SeedData();
+            SeedData();
             while (Menu())
             {
                 Console.WriteLine("Press any Key to continue...");
@@ -24,10 +24,15 @@ namespace _01_Komodo_Claims_Department_Console
                 "Press an key to exit...");
             Console.ReadKey();
         }
-        /*private void SeedData()
+        private void SeedData()
         {
-            var walden = new Claim(ClaimOptions.Car,"the car hit the block",277.67,new DateTime(2020,3,15),new DateTime(2020,3,16),true);
-        }*/
+            var walden = new Claim(ClaimOptions.Car, "the car hit the block", 277.67, new DateTime(2020, 3, 15), new DateTime(2020, 3, 16), true);
+            var Kit = new Claim(ClaimOptions.Home, "Hell danmaged the roof", 1500.52, new DateTime(2020, 5, 19), new DateTime(2020, 05, 20), true);
+            var Bob = new Claim(ClaimOptions.Renter, "Home got fire", 600.21, new DateTime(2020, 09, 21), new DateTime(2020, 09, 22), true);
+            _claimRepo.AddClaimToDirectory(walden);
+            _claimRepo.AddClaimToDirectory(Bob);
+            _claimRepo.AddClaimToDirectory(Kit);
+        }
 
         private bool Menu()
         {
@@ -120,6 +125,35 @@ namespace _01_Komodo_Claims_Department_Console
             Console.Clear();
             DisplayAllClaim();
             Console.WriteLine("Enter the Claim Id please");
+            int claimID = int.Parse(Console.ReadLine());
+            DisplayClaim(_claimRepo.GetClaimBYID(claimID));
+            Console.WriteLine("Please Choos number for Your Claim Type: \n" +
+              "1. Car \n" +
+              "2. Home\n" +
+              "3. Renter");
+            string claimOptions = Console.ReadLine();
+            int claimNum = int.Parse(claimOptions);
+            //description
+            Console.WriteLine("Pleas Enter claim description: ");
+            string claimDescription = Console.ReadLine();
+            //amount
+            Console.WriteLine("Please enter claim estimation: ");
+            string estimation = Console.ReadLine();
+            double estimate = double.Parse(estimation);
+            //Incident Date
+            Console.WriteLine("Enter incident date: ");
+            string dateIn = Console.ReadLine();
+            DateTime iDate = DateTime.Parse(dateIn);
+            //Claim Date
+            Console.WriteLine("Enter incident date: ");
+            string cDateIn = Console.ReadLine();
+            DateTime cDate = DateTime.Parse(cDateIn);
+            //Validatiom Check
+            Console.WriteLine("Is Your Claim Valid? (y/n)");
+            bool isClaimValid = GetYesNoAnswer();
+
+            Claim updateClaim = new Claim((ClaimOptions)claimNum, claimDescription, estimate, iDate, cDate, isClaimValid);
+            _claimRepo.AddClaimToDirectory(updateClaim);
 
         }
         private void DeleteExistingClaim()
