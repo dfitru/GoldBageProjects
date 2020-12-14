@@ -8,7 +8,7 @@ namespace _02_Badges_Repository
 {
     public class BadgRepo
     {
-        private List<Badge> _badges = new List<Badge>();
+        private List<Badge> _badgesList = new List<Badge>();
         private int badgeID = 1000;
 
         // Badge create 
@@ -16,19 +16,19 @@ namespace _02_Badges_Repository
         public void AddBageForTheDoor (Badge bage)
         {
             bage.BadgeID = badgeID + 1;
-            _badges.Add(bage);
+            _badgesList.Add(bage);
             badgeID++;
         }
         //Developer Read
         public List<Badge> GetAllBadge()
         {
-            return _badges;
+            return _badgesList;
         }
 
         //Helper Method
         public Badge GetBadgeByID(int id)
         {
-            foreach (Badge badge in _badges)
+            foreach (Badge badge in _badgesList)
             {
                 if (badge.BadgeID == id)
                 {
@@ -57,7 +57,7 @@ namespace _02_Badges_Repository
         public bool RemoveBage(int badgeid)
         {
             Badge badge = GetBadgeByID(badgeid);
-            if (_badges.Remove(badge))
+            if (_badgesList.Remove(badge))
             {
                 return true;
 

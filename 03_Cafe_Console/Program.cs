@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02_Badges_Console
+namespace _03_Cafe_Console
 {
-   public class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            ProgramUI ui = new ProgramUI();
-            ui.Run();
-
         }
     }
 }
