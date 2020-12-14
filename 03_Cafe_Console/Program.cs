@@ -10,6 +10,9 @@ namespace _03_Cafe_Console
     {
         static void Main(string[] args)
         {
+            UI uI = new UI();
+            uI.Run();
+
         }
     }
 }

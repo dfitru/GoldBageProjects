@@ -1,0 +1,10 @@
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\bin\Debug\03_Cafe_Console.exe.config
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\bin\Debug\03_Cafe_Console.exe
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\bin\Debug\03_Cafe_Console.pdb
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\bin\Debug\Cafe_Repo.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\bin\Debug\Cafe_Repo.pdb
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\obj\Debug\03_Cafe_Console.csprojAssemblyReference.cache
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\obj\Debug\03_Cafe_Console.csproj.CoreCompileInputs.cache
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\obj\Debug\03_Cafe_Console.csproj.CopyComplete
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\obj\Debug\03_Cafe_Console.exe
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\03_Cafe_Console\obj\Debug\03_Cafe_Console.pdb
