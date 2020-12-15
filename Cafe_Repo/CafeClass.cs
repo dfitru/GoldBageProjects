@@ -15,9 +15,9 @@ namespace Cafe_Repo
         public double Price { get; set; }
         public CafeClass() { }
 
-        public CafeClass(int mealNumber,string mealName,string description,List<string> ingredients,double price)
+        public CafeClass(string mealName,string description,List<string> ingredients,double price)
         {
-            MealNumber = mealNumber;
+           // MealNumber = mealNumber;
             MealName = mealName;
             MealDescription = description;
             Ingredients = ingredients;

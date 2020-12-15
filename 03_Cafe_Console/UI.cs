@@ -29,23 +29,23 @@ namespace _03_Cafe_Console
             //CafeClass menu = new CafeClass();
             //menu.Ingredients = new List<string>();
 
-            var salad = new CafeClass(1,"Salad","Chickn Club Sald",new List<string>() {"lightly fried chicken\n" +
-                "egg\n" +
-                "tomato\n" +
-                "avocado\n" +
-                "onion\n" +
+            var salad = new CafeClass("Salad","Chickn Club Sald",new List<string>() {"lightly fried chicken," +
+                "egg," +
+                "tomato," +
+                "avocado," +
+                "onion," +
                 "house made croutons" },16.00);
-            var burger = new CafeClass(2, "Chees Burger", "Chees Burger", new List<string>() {
-                "cheddar\n" +
-                "lettuce\n" +
-                "tomato\n" +
-                "onion\n" +
+            var burger = new CafeClass("Chees Burger", "Chees Burger", new List<string>() {
+                "cheddar," +
+                "lettuce," +
+                "tomato," +
+                "onion," +
                 "Pickel" }, 14.57);
-            var chicken = new CafeClass(3, "Chicken", "Enchilada Plae", new List<string>() {"corn tortila\n" +
-                "montery jack\n" +
-                "enchilada red sauce\n" +
-                "soure cream\n" +
-                "guacomole\n" +
+            var chicken = new CafeClass("Chicken", "Enchilada Plae", new List<string>() {"corn tortila," +
+                "montery jack," +
+                "enchilada red sauce," +
+                "soure cream," +
+                "guacomole," +
                 "pico" }, 16.50);
 
             _menuRepo.AddMenuToList(salad);
@@ -71,11 +71,11 @@ namespace _03_Cafe_Console
                     break;
                 case "2":
                     //Create a Menu
-                  //  CreateNewMenu();
+                   CreateNewMenu();
                     break;
                 case "3":
                     //Update an existing Menu
-                 //   UpdateMenu();
+                  UpdateMenu();
                     break;
                 case "4":
                     //Delete a Menu
@@ -100,14 +100,90 @@ namespace _03_Cafe_Console
             {
                 Console.WriteLine($"No:{menu.MealNumber}\n" +
                     $"\tMenu Name:{menu.MealName}\n" +
-                    $"\tDescription:{menu.MealDescription}\n" +
-                    $"\tIngridients:{menu.Ingredients}");
+                    $"\tDescription:{menu.MealDescription}\n");
+                foreach (var inputs in menu.Ingredients)
+                {
+                    Console.WriteLine($"\tIngridients:{inputs}");
+                }
+            }
+        }
 
+        public void CreateNewMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter menuName");
+            string menuName = Console.ReadLine();
+            Console.WriteLine("Enter description");
+            string description = Console.ReadLine();
+            Console.WriteLine("Do you wnat to add Ingridients?enter(yes/y or no/n");
+            List<string> menuIngridient = Console.ReadLine().Split(',').ToList();
+            Console.WriteLine("Enter Price");
+            string strPrice = Console.ReadLine();
+            double price = double.Parse(strPrice);
+
+            CafeClass newMenu = new CafeClass(menuName, description, menuIngridient, price);
+        }
+        public void UpdateMenu()
+        {
+            Console.Clear();
+            DisplayAllMenu();
+            Console.WriteLine("Enter Menu Number");
+            int menuNum = int.Parse(Console.ReadLine());
+            Console.Clear();
+            var menuToView = _menuRepo.GetMenuByNum(menuNum);
+            ViewMenu(menuToView);
+            Console.WriteLine("Enter menuName");
+            string menuName = Console.ReadLine();
+            Console.WriteLine("Enter description");
+            string description = Console.ReadLine();
+            Console.WriteLine("Do you wnat to add Ingridients?enter(yes/y or no/n");
+            List<string>  menuIngridient = Console.ReadLine().Split(',').ToList();
+            
+            
+            Console.WriteLine("Enter Price");
+            string strPrice = Console.ReadLine();
+            double price = double.Parse(strPrice);
+
+            CafeClass newMenu = new CafeClass(menuName, description, menuIngridient, price);
+
+
+
+        }
+        private bool GetYesNoAnswer()
+        {
+            while (true)
+            {
+                string input = Console.ReadLine().ToLower();
+                if (input == "yes" || input == "y")
+                {
+                    return true;
+                }
+                else if (input == "no" || input == "n")
+                {
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter valid value");
+                }
+            }
+        }
+        private void ViewMenu(CafeClass menu)
+        {
+            Console.WriteLine($"No:{menu.MealNumber}\n" +
+                    $"\tMenu Name:{menu.MealName}\n" +
+                    $"\tDescription:{menu.MealDescription}\n");
+            foreach (var inputs in menu.Ingredients)
+            {
+                Console.WriteLine($"\tIngridients:{inputs}");
             }
 
         }
 
+       public void RemoveMenu()
+        {
 
+        }
 
     }
 }

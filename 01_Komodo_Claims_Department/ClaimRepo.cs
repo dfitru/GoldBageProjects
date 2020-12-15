@@ -28,7 +28,7 @@ namespace _01_Komodo_Claims_Department
         //ClaimRead Helper(Get Claim by ID)
         public Claim GetClaimBYID(int id)
         {
-            foreach (var claim in _claimsDirectory)
+            foreach (Claim claim in _claimsDirectory)
             {
                 if (claim.ClaimID==id)
                 {

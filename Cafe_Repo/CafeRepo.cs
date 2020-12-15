@@ -9,11 +9,19 @@ namespace Cafe_Repo
     public class CafeRepo
     {
         private readonly List<CafeClass> _cafeClass = new List<CafeClass>();
+        private int _menuNo = 0;
 
         // Create Menu
         public void AddMenuToList(CafeClass menu)
         {
-            _cafeClass.Add(menu);
+            //if (menu.MealNumber==null)
+            //{
+                menu.MealNumber = _menuNo + 1;
+                _cafeClass.Add(menu);
+                _menuNo++;
+            //}
+            //_cafeClass.Add(menu);
+            
         }
         //Read
         public List<CafeClass> GetMenuList()

@@ -160,11 +160,12 @@ namespace _01_Komodo_Claims_Department_Console
         {
             Console.Clear();
             DisplayAllClaim();
-            Console.WriteLine("Eneter ClaimId to Remove Claim");
+            Console.WriteLine("Eneter ClaimId to Remove ClaimID");
             int claimID = int.Parse(Console.ReadLine());
             Console.Clear();
             var removeClaim = _claimRepo.GetClaimBYID(claimID);
-            Console.WriteLine(removeClaim);
+            DisplayClaim(removeClaim);
+  
             Console.WriteLine("Are you sure to remove this claim?");
             if (GetYesNoAnswer())
             {
@@ -176,6 +177,12 @@ namespace _01_Komodo_Claims_Department_Console
                 {
                     Console.WriteLine("Can not be removed claim");
                 }
+            }
+            Console.WriteLine("Do wnat to remove another claim");
+
+            if (GetYesNoAnswer())
+            {
+                DeleteExistingClaim();
             }
 
         }
@@ -215,12 +222,11 @@ namespace _01_Komodo_Claims_Department_Console
         }
         private void DisplayClaim(Claim claim)
         {
-            Console.WriteLine($"\tID:{claim.ClaimID}");
+            Console.WriteLine($"ID:{claim.ClaimID}");
             Console.WriteLine($"\tClaim Type:{claim.ClaimType}");
             Console.WriteLine($"\tID:{claim.Description}");
             Console.WriteLine($"\tClaim Date:{claim.DateOfClaim}");
-            Console.WriteLine($"\tClaim Type:{claim.DateOfIncident}");
-            
+            Console.WriteLine($"\tClaim Type:{claim.DateOfIncident}");   
         }
             
     }
