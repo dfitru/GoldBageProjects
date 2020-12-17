@@ -96,7 +96,7 @@ namespace _03_Cafe_Console
             List<CafeClass> menuList = _menuRepo.GetMenuList();
             foreach (var menu in menuList)
             {
-                Console.WriteLine($"No:{menu.MealNumber}\n" +
+                Console.WriteLine($"MenuNo:{menu.MealNumber}\n" +
                     $"\tMenu Name:{menu.MealName}\n" +
                     $"\tDescription:{menu.MealDescription}\n" +
                     $"\tIngridient");
@@ -104,6 +104,7 @@ namespace _03_Cafe_Console
                 {
                     Console.WriteLine($"\t:{inputs}");
                 }
+                Console.WriteLine($"\tPrice:{menu.Price}"+"$");
             }
         }
 

@@ -11,25 +11,12 @@ namespace _02_Badges_Repository
         public int BadgeID { get; set; }
         public string DoorName { get; set; }
 
-        public Dictionary<int, string> DoorBadge { get; set; } = new Dictionary<int, string>( );
+       
         public Badge() { }
-        public Badge(string doorName
-            ,Dictionary<int,string> lsitOfBadge)
+        public Badge(string doorName)
         {
-            
+           // BadgeID = id;
             DoorName = doorName;
-            DoorBadge = lsitOfBadge;
-
-        }
-        // Add Bage to door 
-        public void AddIdToDoor()
-        {
-            DoorBadge.Add(BadgeID, DoorName);
-        }
-        //Remove 
-        public void RemoveFromDoor()
-        {
-            DoorBadge.Remove(BadgeID);
         }
     }
 }

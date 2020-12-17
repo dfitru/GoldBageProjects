@@ -38,33 +38,29 @@ namespace _01_Komodo_Claims_Department_Console
         {
             Console.Clear();
             Console.WriteLine("Welcome to the DevTeam Menu. Please select an option.\n\n" +
-               "1. View all Claim\n" +
+               "1. See all Claim\n" +
                "2. Add a new Claim\n" +
-               "3. Update a Calim\n" +
-               "4. Delete a Claim\n" +
-               "5. Is Claim Valid\n\n" +
+               "3. Take care of  a Calim\n" +
+               //"4. Delete a Claim\n" +
+               //"5.\n\n" +
                "0. Exit");
             switch (Console.ReadLine())
             {
                 case "1":
-                    //Display all Developers
+                    //Display all Claim
                     DisplayAllClaim();
                     break;
                 case "2":
-                    //Create a developer
-                    CreateNewClaim();
+                    //Create a Claim
+                    AddNewClaim();
                     break;
+                //case "3":
+                //    //Take Care of  a claim
+                //    UpdateExistingClaim();
+                //    break;
                 case "3":
-                    //Update an existing developer
-                    UpdateExistingClaim();
-                    break;
-                case "4":
-                    //Delete a developer
-                    DeleteExistingClaim();
-                    break;
-                case "5":
-                    //Pluralsight report
-                    ClaimValidation();
+                    //Delete Claim
+                     DeleteExistingClaim();
                     break;
 
                 case "0":
@@ -87,7 +83,7 @@ namespace _01_Komodo_Claims_Department_Console
             Console.WriteLine();
 
         }
-        private void CreateNewClaim()
+        private void AddNewClaim()
         {
             Console.Clear();
             //Claim Type
@@ -120,56 +116,66 @@ namespace _01_Komodo_Claims_Department_Console
             _claimRepo.AddClaimToDirectory(newClaim);
             //
         }
-        private void UpdateExistingClaim()
-        {
-            Console.Clear();
-            DisplayAllClaim();
-            Console.WriteLine("Enter the Claim Id please");
-            int claimID = int.Parse(Console.ReadLine());
-            DisplayClaim(_claimRepo.GetClaimBYID(claimID));
-            Console.WriteLine("Please Choos number for Your Claim Type: \n" +
-              "1. Car \n" +
-              "2. Home\n" +
-              "3. Renter");
-            string claimOptions = Console.ReadLine();
-            int claimNum = int.Parse(claimOptions);
-            //description
-            Console.WriteLine("Pleas Enter claim description: ");
-            string claimDescription = Console.ReadLine();
-            //amount
-            Console.WriteLine("Please enter claim estimation: ");
-            string estimation = Console.ReadLine();
-            double estimate = double.Parse(estimation);
-            //Incident Date
-            Console.WriteLine("Enter incident date: ");
-            string dateIn = Console.ReadLine();
-            DateTime iDate = DateTime.Parse(dateIn);
-            //Claim Date
-            Console.WriteLine("Enter incident date: ");
-            string cDateIn = Console.ReadLine();
-            DateTime cDate = DateTime.Parse(cDateIn);
-            //Validatiom Check
-            Console.WriteLine("Is Your Claim Valid? (y/n)");
-            bool isClaimValid = GetYesNoAnswer();
+        //private void UpdateExistingClaim()
+        //{
+        //    Console.Clear();
+        //    DisplayAllClaim();
+        //    Console.WriteLine("Enter the Claim Id please");
+        //    int claimID = int.Parse(Console.ReadLine());
+        //    DisplayClaim(_claimRepo.GetClaimBYID(claimID));
+        //    Console.WriteLine("Please Choos number for Your Claim Type: \n" +
+        //      "1. Car \n" +
+        //      "2. Home\n" +
+        //      "3. Renter");
+        //    string claimOptions = Console.ReadLine();
+        //    int claimNum = int.Parse(claimOptions);
+        //    //description
+        //    Console.WriteLine("Pleas Enter claim description: ");
+        //    string claimDescription = Console.ReadLine();
+        //    //amount
+        //    Console.WriteLine("Please enter claim estimation: ");
+        //    string estimation = Console.ReadLine();
+        //    double estimate = double.Parse(estimation);
+        //    //Incident Date
+        //    Console.WriteLine("Enter incident date: ");
+        //    string dateIn = Console.ReadLine();
+        //    DateTime iDate = DateTime.Parse(dateIn);
+        //    //Claim Date
+        //    Console.WriteLine("Enter incident date: ");
+        //    string cDateIn = Console.ReadLine();
+        //    DateTime cDate = DateTime.Parse(cDateIn);
+        //    //Validatiom Check
+        //    Console.WriteLine("Is Your Claim Valid? (y/n)");
+        //    bool isClaimValid = GetYesNoAnswer();
 
-            Claim updateClaim = new Claim((ClaimOptions)claimNum, claimDescription, estimate, iDate, cDate, isClaimValid);
-            _claimRepo.AddClaimToDirectory(updateClaim);
+        //    Claim updateClaim = new Claim((ClaimOptions)claimNum, claimDescription, estimate, iDate, cDate, isClaimValid);
+        //    _claimRepo.AddClaimToDirectory(updateClaim);
 
-        }
+        //}
+      
         private void DeleteExistingClaim()
         {
             Console.Clear();
             DisplayAllClaim();
-            Console.WriteLine("Eneter ClaimId to Remove ClaimID");
-            int claimID = int.Parse(Console.ReadLine());
-            Console.Clear();
-            var removeClaim = _claimRepo.GetClaimBYID(claimID);
-            DisplayClaim(removeClaim);
-  
-            Console.WriteLine("Are you sure to remove this claim?");
+            Console.WriteLine("Eneter ClaimId to Take Care");
+            string str = Console.ReadLine();
+            int ClaimID = 0;
+            while (!Int32.TryParse(str, out ClaimID))
+            {
+                Console.WriteLine("Please enter Int");
+                 str = Console.ReadLine();
+            }
+            Console.WriteLine(ClaimID);
+            //ClaimID = int.Parse(str);
+            //if (!Int32.TryParse(str, out ClaimID))
+            //{
+                
+            //}
+          
+            Console.WriteLine("Are you sure to Takecare this claim now?");
             if (GetYesNoAnswer())
             {
-                if (_claimRepo.RemoveClaim(claimID))
+                if (_claimRepo.RemoveClaim())
                 {
                     Console.WriteLine("Removed successfully");
                 }
@@ -186,21 +192,6 @@ namespace _01_Komodo_Claims_Department_Console
             }
 
         }
-        private void ClaimValidation() 
-        { 
-
-        }
-        //private void DisplayClaimType(Claim claim)
-        //{
-        //    foreach (var claim in _claimRepo.GetAllClaimTypes()) )
-        //    {
-        //        if (claim.)
-        //        {
-
-        //        }
-
-        //    }
-        //}
         private bool GetYesNoAnswer()
         {
             while (true)
