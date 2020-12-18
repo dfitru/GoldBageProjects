@@ -66,7 +66,10 @@ namespace _02_Badges_Test
             Badge newbadge = new Badge(new List<string> { "A1" });
 
             //Act
-            bool updateBadge = _repo.BadgeUpdate(1000, newbadge);
+            bool updateBadge = _repo.BadgeUpdate(_badge.BadgeID, newbadge);
+
+            //
+            Assert.IsTrue(updateBadge);
 
         }
         [TestMethod]

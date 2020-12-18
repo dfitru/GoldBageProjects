@@ -10,8 +10,6 @@ namespace _02_Badges_Console
     public class ProgramUI
     {
         private BadgRepo _badgRepo = new BadgRepo();
-
-
         public void Run()
         {
             SeedData();
@@ -24,7 +22,6 @@ namespace _02_Badges_Console
             Console.WriteLine("Goodbye!\n" +
                 "Press an key to exit...");
             Console.ReadKey();
-
         }
         private void SeedData()
         {
@@ -65,25 +62,20 @@ namespace _02_Badges_Console
                     //Update badge
                     break;
                 case "4":
-                    Console.Clear();
-                    //Delete Badge
+                    DeleteBadge();
                     break;
                 case "0":
                     return false;
-
+                    
                 default:
                     Console.WriteLine("Please enter a valid option");
                     break;
             }
             return true;
         }
-
-
-
         private void DisplayAllBadgeAccess()
         {
             Console.Clear();
-
             Dictionary<int, Badge> badgeList = _badgRepo.GetAllBadge();
             foreach (KeyValuePair<int, Badge> badge in badgeList)
             {
@@ -99,7 +91,6 @@ namespace _02_Badges_Console
 
 
         }
-
         private void AddBadge()
         {
             Console.Clear();
@@ -110,7 +101,6 @@ namespace _02_Badges_Console
 
             _badgRepo.AddBageForTheDoor(newBadge);
         }
-
         private void UpdateBadgeAccess()
         {
             Console.Clear();
@@ -123,7 +113,6 @@ namespace _02_Badges_Console
             Badge door = _badgRepo.GetBadgeByID(Id);
             Console.WriteLine($"BadgeID:{door.BadgeID}\n" +
                 $"\tDoorName:{door.DoorName}");
-
         }
         private void DeleteBadge()
         {
@@ -133,10 +122,12 @@ namespace _02_Badges_Console
             int badgeId = int.Parse(Console.ReadLine());
             Console.Clear();
             var doorToDelete = _badgRepo.GetBadgeByID(badgeId);
-            Get(doorToDelete);
-            Console.WriteLine();
-            
+            Console.WriteLine("Are you sure you wnat to remove:(yes or no)-"+doorToDelete);
+            string ans = Console.ReadLine();
+            if (ans.ToLower()=="yes"|| ans.ToLower() == "y")
+            {
 
+            }
         }
         //private void DisplayBadge(Badge badge)
         //{

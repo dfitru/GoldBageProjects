@@ -60,11 +60,19 @@ namespace _02_Badges_Repository
         public bool RemoveAllDoor(int id)
         {
             Badge badge = GetBadgeByID(id);
-            if (_badgesList.Remove(badge.BadgeID))
+           // int firstCount = _badgesList.Count;
+            foreach (KeyValuePair <int,Badge> item in _badgesList)
             {
-                return true;
-            }
-            return false;
+                if (item.Key==id)
+                {
+                    if (_badgesList.Remove(item.Key))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+
+            }return false;
             
         }
 
