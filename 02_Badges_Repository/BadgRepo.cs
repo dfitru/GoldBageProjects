@@ -59,7 +59,7 @@ namespace _02_Badges_Repository
         //Remove Bage
         public bool RemoveAllDoor(int id)
         {
-            Badge badge = GetBadgeByID(id);
+           // Badge badge = GetBadgeByID(id);
            // int firstCount = _badgesList.Count;
             foreach (KeyValuePair <int,Badge> item in _badgesList)
             {

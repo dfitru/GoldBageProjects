@@ -88,8 +88,6 @@ namespace _02_Badges_Console
         }
         public void DisplayBageByID()
         {
-
-
         }
         private void AddBadge()
         {
@@ -107,12 +105,17 @@ namespace _02_Badges_Console
             DisplayAllBadgeAccess();
             Console.WriteLine("Enter BadgeId you would like to edit:");
             int Id = int.Parse(Console.ReadLine());
-
-
-
             Badge door = _badgRepo.GetBadgeByID(Id);
-            Console.WriteLine($"BadgeID:{door.BadgeID}\n" +
-                $"\tDoorName:{door.DoorName}");
+
+            Dictionary<int, Badge> badgeList = _badgRepo.GetAllBadge();
+            foreach (KeyValuePair<int, Badge> badge in badgeList)
+            {
+                Console.WriteLine($"BadgeID:-{badge.Key}");
+                foreach (string item in badge.Value.DoorName)
+                {
+                    Console.WriteLine($"\tDoorName:{item}");
+                }
+            }
         }
         private void DeleteBadge()
         {
@@ -122,10 +125,19 @@ namespace _02_Badges_Console
             int badgeId = int.Parse(Console.ReadLine());
             Console.Clear();
             var doorToDelete = _badgRepo.GetBadgeByID(badgeId);
+            
             Console.WriteLine("Are you sure you wnat to remove:(yes or no)-"+doorToDelete);
             string ans = Console.ReadLine();
             if (ans.ToLower()=="yes"|| ans.ToLower() == "y")
             {
+                if (_badgRepo.RemoveAllDoor(badgeId))
+                {
+                    Console.WriteLine("The developer was successfully deleted");
+                }
+                else
+                {
+                    Console.WriteLine("The developer could not be deleted");
+                }
 
             }
         }
