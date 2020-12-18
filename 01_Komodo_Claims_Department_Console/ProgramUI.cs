@@ -158,24 +158,13 @@ namespace _01_Komodo_Claims_Department_Console
             Console.Clear();
             DisplayAllClaim();
             Console.WriteLine("Eneter ClaimId to Take Care");
-            string str = Console.ReadLine();
-            int ClaimID = 0;
-            while (!Int32.TryParse(str, out ClaimID))
-            {
-                Console.WriteLine("Please enter Int");
-                 str = Console.ReadLine();
-            }
-            Console.WriteLine(ClaimID);
-            //ClaimID = int.Parse(str);
-            //if (!Int32.TryParse(str, out ClaimID))
-            //{
-                
-            //}
-          
-            Console.WriteLine("Are you sure to Takecare this claim now?");
+           // string str = Console.ReadLine();
+            int claimID = int.Parse(Console.ReadLine());
+            var claimToRemove = _claimRepo.GetClaimBYID(claimID);
+            Console.WriteLine("Are you sure to Takecare this claim now?(Yes/No)");
             if (GetYesNoAnswer())
             {
-                if (_claimRepo.RemoveClaim())
+                if (_claimRepo.RemoveClaim(claimToRemove))
                 {
                     Console.WriteLine("Removed successfully");
                 }

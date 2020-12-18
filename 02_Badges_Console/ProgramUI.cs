@@ -28,12 +28,12 @@ namespace _02_Badges_Console
         }
         private void SeedData()
         {
-            var badge1 = new Badge("A1");
+            var badge1 = new Badge(new List<string> {"A1","A2","A3" });
 
-            var badge2 = new Badge("A1");
-            var badge3 = new Badge("A2");
-            var badge4 = new Badge("A3");
-            var badge5 = new Badge("A2");
+            var badge2 = new Badge(new List<string> { "A1", "A2","A4" });
+            var badge3 = new Badge(new List<string> { "A1",  "A3" });
+            var badge4 = new Badge(new List<string> {  "A2", "A3","A4" });
+            var badge5 = new Badge(new List<string> { "A1", "A2","A3","A4","A5" });
             _badgRepo.AddBageForTheDoor(badge1);
             _badgRepo.AddBageForTheDoor(badge5);
             _badgRepo.AddBageForTheDoor(badge4);
@@ -84,13 +84,13 @@ namespace _02_Badges_Console
         {
             Console.Clear();
 
-            Dictionary<int, List<Badge>> badgeList = _badgRepo.GetAllBadge();
-            foreach (KeyValuePair<int, List<Badge>> badge in badgeList)
+            Dictionary<int, Badge> badgeList = _badgRepo.GetAllBadge();
+            foreach (KeyValuePair<int, Badge> badge in badgeList)
             {
-                foreach (var item in badge.Value)
+                Console.WriteLine($"BadgeID:-{badge.Key}");
+                foreach (string item in badge.Value.DoorName)
                 {
-                    Console.WriteLine($"BadgeID: {badge.Key}\n" +
-                        $"\tDoorName{item.DoorName}");
+                    Console.WriteLine($"\tDoorName:{item}");
                 }
             }
         }
@@ -106,7 +106,7 @@ namespace _02_Badges_Console
             Badge newBadge = new Badge();
 
             Console.WriteLine("Enter name of the Door");
-            newBadge.DoorName = Console.ReadLine();
+            newBadge.DoorName = new List<String> { Console.ReadLine() };
 
             _badgRepo.AddBageForTheDoor(newBadge);
         }
@@ -127,21 +127,26 @@ namespace _02_Badges_Console
         }
         private void DeleteBadge()
         {
+            Console.Clear();
+            DisplayAllBadgeAccess();
+            Console.WriteLine("Enter Id of the door you would like to remove:");
+            int badgeId = int.Parse(Console.ReadLine());
+            Console.Clear();
+            var doorToDelete = _badgRepo.GetBadgeByID(badgeId);
+            Get(doorToDelete);
+            Console.WriteLine();
+            
 
         }
-        private void DisplayBadge(Badge badge)
-        {
-            Dictionary<int, List<Badge>> dict = _badgRepo.GetAllBadge();
-            foreach (KeyValuePair<int, List<Badge>> badgeList in dict)
-            {
-                foreach (var item in badgeList.Value)
-                {
-                    Console.WriteLine($"BadgeID: {badgeList.Key}\n" +
-                        $"\tDoorName{item.DoorName}");
-                }
+        //private void DisplayBadge(Badge badge)
+        //{
+        //    Dictionary<int, Badge> badgeList = _badgRepo.GetAllBadge();
+        //    foreach (KeyValuePair<int, Badge> badge in badgeList)
+        //    {
+        //        Console.WriteLine($"BadgeID:-{badge.Key}\n" +
+        //            $"\tDoorName:-{badge.Value.DoorName}");
+        //    }
 
-            }
-
-        }
+        //}
     }
 }

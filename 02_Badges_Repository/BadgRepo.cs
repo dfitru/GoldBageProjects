@@ -5,44 +5,39 @@ namespace _02_Badges_Repository
     public class BadgRepo
     {
 
-        private Dictionary<int, List<Badge>> _badgesList = new Dictionary<int, List<Badge>>();
+        private Dictionary<int, Badge> _badgesList = new Dictionary<int, Badge>();
         private int badgeID = 1000;
 
-       // Badge create
+        // Badge create
         public void AddBadge(Badge badge)
         {
-            List<Badge> badges = new List<Badge>();
-            badges.Add(badge);
-            _badgesList.Add(badge.BadgeID, badges);
+            badge.BadgeID = badgeID + 1;
+            Badge badge1 = new Badge(badge.DoorName);
+            _badgesList.Add(badge.BadgeID, badge1);
+            badgeID++;
         }
 
         public void AddBageForTheDoor(Badge badge)
         {
-            badge.BadgeID = badgeID + 1;
-            List<Badge> badges = new List<Badge>();
-            badges.Add(badge);
-            _badgesList.Add(badgeID,badges);
+            badge.BadgeID = badgeID;
+            Badge badges = new Badge(badge.DoorName);
+            _badgesList.Add(badgeID, badges);
             badgeID++;
         }
         //Developer Read
-        public Dictionary<int, List<Badge>> GetAllBadge()
+        public Dictionary<int, Badge> GetAllBadge()
         {
             return _badgesList;
         }
         //Helper Method
         public Badge GetBadgeByID(int id)
         {
-            foreach (KeyValuePair<int, List<Badge>> badge in _badgesList)
+            foreach (KeyValuePair<int, Badge> badge in _badgesList)
             {
                 if (badge.Key == id)
                 {
-
-                    foreach (var Value in badge.Value)
-                    {
-                        Badge badge1 = Value;
-                        return badge1;
-                    }  
-                } 
+                    return badge.Value;
+                }
             }
             return null;
         }
@@ -62,14 +57,15 @@ namespace _02_Badges_Repository
         }
 
         //Remove Bage
-        public bool RemoveBage(int badgeid)
+        public bool RemoveAllDoor(int id)
         {
-            Badge badge = GetBadgeByID(badgeid);
+            Badge badge = GetBadgeByID(id);
             if (_badgesList.Remove(badge.BadgeID))
             {
                 return true;
             }
             return false;
+            
         }
 
     }

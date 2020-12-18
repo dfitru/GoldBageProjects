@@ -1,0 +1,16 @@
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\02_Badges_Test.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\02_Badges_Test.pdb
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\02_Badges_Repository.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\02_Badges_Repository.pdb
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\obj\Debug\02_Badges_Test.csprojAssemblyReference.cache
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\obj\Debug\02_Badges_Test.csproj.CoreCompileInputs.cache
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\obj\Debug\02_Badges_Test.csproj.CopyComplete
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\obj\Debug\02_Badges_Test.dll
+C:\ElevenfiftyProjects\Gold Badge Project\GoldBage_Challange\02_Badges_Test\obj\Debug\02_Badges_Test.pdb

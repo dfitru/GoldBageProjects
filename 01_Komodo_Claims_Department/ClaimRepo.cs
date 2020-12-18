@@ -16,7 +16,9 @@ namespace _01_Komodo_Claims_Department
             _claimsDirectory.Enqueue(claim);
             _claimID++;
         }
-       // ClaimRead
+       //
+        //Re,oving Claim Read
+       
         public Queue<Claim> GetAllClaims()
         {
             return _claimsDirectory;
@@ -53,8 +55,13 @@ namespace _01_Komodo_Claims_Department
         //    return false;
         //}
         //Developer Remove Claim
-        public bool RemoveClaim()
+        public bool RemoveClaim(Claim claims)
         {
+            Claim claim = GetClaimBYID(claims.ClaimID);
+            if (claim == null)
+            {
+                return false;
+            }
            int count = _claimsDirectory.Count;
             _claimsDirectory.Dequeue();
             

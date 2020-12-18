@@ -49,11 +49,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaimTest.cs" />
+    <Compile Include="ClaimRepoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01_Komodo_Claims_Department\01_Komodo_Claims_Department.csproj">
+      <Project>{610d8526-c556-4134-b28d-04a820af2c17}</Project>
+      <Name>01_Komodo_Claims_Department</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\01_Komodo_Claims_Department_Console\01_Komodo_Claims_Department_Console.csproj">
+      <Project>{b53b0e3c-5981-47de-b46a-d5f726dc014f}</Project>
+      <Name>01_Komodo_Claims_Department_Console</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
