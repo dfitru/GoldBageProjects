@@ -1,9 +1,6 @@
 ﻿using _02_Badges_Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _02_Badges_Console
 {
@@ -25,12 +22,12 @@ namespace _02_Badges_Console
         }
         private void SeedData()
         {
-            var badge1 = new Badge(new List<string> {"A1","A2","A3" });
+            var badge1 = new Badge(new List<string> { "A1", "A2", "A3" });
 
-            var badge2 = new Badge(new List<string> { "A1", "A2","A4" });
-            var badge3 = new Badge(new List<string> { "A1",  "A3" });
-            var badge4 = new Badge(new List<string> {  "A2", "A3","A4" });
-            var badge5 = new Badge(new List<string> { "A1", "A2","A3","A4","A5" });
+            var badge2 = new Badge(new List<string> { "A1", "A2", "A4" });
+            var badge3 = new Badge(new List<string> { "A1", "A3" });
+            var badge4 = new Badge(new List<string> { "A2", "A3", "A4" });
+            var badge5 = new Badge(new List<string> { "A1", "A2", "A3", "A4", "A5" });
             _badgRepo.AddBageForTheDoor(badge1);
             _badgRepo.AddBageForTheDoor(badge5);
             _badgRepo.AddBageForTheDoor(badge4);
@@ -66,7 +63,7 @@ namespace _02_Badges_Console
                     break;
                 case "0":
                     return false;
-                    
+
                 default:
                     Console.WriteLine("Please enter a valid option");
                     break;
@@ -90,6 +87,7 @@ namespace _02_Badges_Console
         {
         }
         private void AddBadge()
+
         {
             Console.Clear();
             Badge newBadge = new Badge();
@@ -125,10 +123,10 @@ namespace _02_Badges_Console
             int badgeId = int.Parse(Console.ReadLine());
             Console.Clear();
             var doorToDelete = _badgRepo.GetBadgeByID(badgeId);
-            
-            Console.WriteLine("Are you sure you wnat to remove:(yes or no)-"+doorToDelete);
+
+            Console.WriteLine("Are you sure you wnat to remove:(yes or no)-" + doorToDelete);
             string ans = Console.ReadLine();
-            if (ans.ToLower()=="yes"|| ans.ToLower() == "y")
+            if (ans.ToLower() == "yes" || ans.ToLower() == "y")
             {
                 if (_badgRepo.RemoveAllDoor(badgeId))
                 {
@@ -139,6 +137,29 @@ namespace _02_Badges_Console
                     Console.WriteLine("The developer could not be deleted");
                 }
 
+            }
+        }
+        public bool GetYesNo()
+        {
+            string input = Console.ReadLine().ToLower();
+            while (true)
+            {
+
+
+
+                if (input == "yes" || input == "y")
+                {
+                    return true;
+                }
+                else if (input == "no" || input == "n")
+                {
+                    return false;
+
+                }
+                else
+                {
+                   Console.WriteLine("Answere yes/y or no/n");
+                }
             }
         }
         //private void DisplayBadge(Badge badge)
